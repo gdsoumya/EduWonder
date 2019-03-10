@@ -20,7 +20,7 @@ def index():
 def start():
 	if current_user.is_authenticated:
 			return redirect(url_for('dashboard'))
-	return render_template('loginrg.html')
+	return render_template('loginrg.html',reg=0)
 
 @app.route('/login/', methods=['GET', 'POST'])
 def login():
@@ -47,7 +47,7 @@ def register():
 		u.set_password(request.form['password'])
 		db.session.add(u)
 		db.session.commit()
-		return redirect(url_for('login'))
+		return render_template('loginrg.html',reg=1)
 
 @app.route('/logout')
 def logout():

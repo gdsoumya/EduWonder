@@ -14,7 +14,11 @@
         <a href="{{url_for('index')}}"><div id="link2"><p class="para">HOME</p></div></a>
         
     </div>
-   <div id="big">
+  <div class="contain">
+    {% if reg==1 %}
+      <div class="reg">REGISTERED SUCCESFULLY</div>
+    {% endif %}
+    <div id="big">
     <div class="split left">
       <div class="centered">
         		<form class="formpart" id="font" action="{{url_for('register')}}" method="post">
@@ -46,7 +50,6 @@
                 </form>
     	</div></div>
 </div>
-
-     
+</div>
 </body>
 </html> 
