@@ -1,0 +1,156 @@
+.formpart {
+    padding: 55px;
+    margin-top: 30px;
+    line-height: 10px;
+}
+html,body {
+  font-family: "Montserrat";
+  color: white;
+  margin: 0;
+  height: 100%;
+}
+.btn{
+  width: 115px;
+  height: 35px;
+  cursor: pointer;
+}
+.split {
+  height: fit-content;
+  width: 50%;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+#img1
+{
+    height:60px;
+    width:50px;
+    position: absolute;
+}
+
+#p1
+{
+    margin: 0;
+    font-family: "Luna";
+    color:black;
+    text-align: left;
+    font-size: 50px;
+    padding-left: 70px;
+}
+
+
+.left {
+  left: 0;  
+}
+
+.right {
+  right: 0;
+ 
+}
+#big{
+  display: flex;
+  height: 100%;
+  background-image: url('/static/bglogin.jpg');
+  background-repeat: no-repeat;
+  background-size:cover;
+  overflow: hidden;
+}
+
+#font{
+  font-family: "Montserrat";
+  font-size: 20px;
+}
+.centered {
+  box-shadow: 4px 4px 4px 4px #81cc36;
+  border-style:;
+  border-radius: 10%;
+  border-color: black;
+  background: rgba(0,0,0,0.8);
+  border-width: 3px;
+  color: black;
+  text-align: center;
+  width: 65%;
+  margin: 0 auto;
+}
+
+.centered img {
+  padding: 10px;
+  width: 150px;
+  border-radius: 50%;
+}
+#link1
+{
+    border-radius: 5px;
+    height: 30px;
+    background-color: whitesmoke;
+    text-align: center;
+    width:100px;
+    text-decoration: none;
+    margin-left: 70%;
+    top:15px;
+    position: absolute; 
+    color: black;
+    box-shadow:inset 0 0 10px #a59c9c;
+    font-size:23px;
+
+}
+#image{
+  height: inherit;
+  width: 100%;
+}
+#topic{
+  color: white;
+}
+input{
+    padding: 3px;
+    border-radius: 4px;
+    width: 220px;
+    height: 24px;
+    border: 2px solid greenyellow;
+}
+#link1:hover
+{
+    box-shadow:inset 0 0 10px #6d6666;
+    transition: 0.2s;
+}
+
+#link2
+{
+    top:15px;
+    border-radius: 5px;
+    height: 30px;
+    background-color: whitesmoke;
+    text-align: center;
+    width:170px;
+    text-decoration: none; 
+    margin-left: 80%;
+    position: absolute;
+    color: black;
+    box-shadow:inset 0 0 10px #a59c9c;
+    font-size:23px;
+}
+#link1 a{
+  text-decoration: none;
+  color: black;
+}
+#link2 a{
+  text-decoration: none;
+  color: black;
+}
+
+#link2:hover
+{
+    box-shadow:inset 0 0 10px #6d6666;
+    transition: 0.2s;
+}
+#first
+{
+    margin-top: 0px;
+    height:60px;
+    width:auto;
+    background-color: #81cc36;
+    position: relative;
+}
+
+.para{
+  margin: 0;
+}

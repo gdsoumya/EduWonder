@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='groupview.css')}}">
+	<link rel="shortcut icon" type="image/png" href='{{url_for("static",filename="icon1.png")}}'/>
+	<title> Group Name </title>
+</head>
+<body>
+	<div id="first">
+		 <img id ="img1" src='{{url_for("static",filename="icon1.png")}}'/>
+        <p id="p1">EduWonder</p>
+        
+        <a href="{{url_for('logout')}}"><div id="link1"><p class="para">LOGOUT</p></div></a>
+        <a href="{{url_for('dashboard')}}"><div id="link2"><p class="para">DASHBOARD</p></div></a>
+	</div>	
+	<div id="feed">
+		<h1>{{g.name}}</h1>
+		<h2>{{g.des}}</h2>
+		<br>
+		<button class="open-button" onclick="openForm()">Add Resource</button>
+
+<div class="form-popup" id="myForm">
+  <form action="{{url_for('post')}}" method="post" class="form-container">
+    <h2>Resource Description</h2>
+
+    <textarea rows="10" cols="30" maxlength="500" name="body" required="true"></textarea>
+    <br><br>
+    <div class="upload-btn-wrapper">
+    	<button class="btn1">Upload a file</button>
+    	<input type="file" align="center" style="font-family: Montserra" name="file"></div>
+    <br><br>
+    <input type="hidden" name="id" value="{{g.id}}">
+    <input type="submit" value="Post" class="btn">
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+</div>
+
+{% for x in post %}
+<div id="post">
+
+		<h3>{{x.author.name}}</h3>
+		<p>{{x.body}}</p><br>
+	<br>
+</div>
+{% endfor %}
+
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+  </body>

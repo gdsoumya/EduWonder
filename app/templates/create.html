@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EduWonder</title>
+        <link rel="shortcut icon" type="image/png" href="icon1.png"/>
+        <link type="text/css" rel="stylesheet" href='{{url_for("static",filename="create.css")}}'>  
+    </head>
+    
+    
+    <div id="first">
+        <img id ="img1" src='{{url_for("static",filename="icon1.png")}}'/>
+        <p id="p1">EduWonder</p>
+        
+        
+        <a href="{{url_for('logout')}}"><div id="link1"><p class="para">LOGOUT</p></div></a>
+        <a href="{{url_for('dashboard')}}"><div id="link2"><p class="para">DASHBOARD</p></div></a>
+        
+    </div>
+    
+    <p id="p2">Create a Community!</p><br/><br/>
+    <img id ="pic1" src='{{url_for("static",filename="e.jpg")}}'>
+    
+     <div id="form1">
+     <form action="" method="post">
+        <input type="text" name="name" placeholder="Enter Group Name"><br/><br/><br/><br/>
+         <input type="text" name="des" placeholder="Enter Group Description">
+         <br/><br/><br/><br/><br/><br/>
+        <input type="submit" name="submit" value="CREATE">
+    </form>    
+    </div>
+        
+    
+    
+</html>

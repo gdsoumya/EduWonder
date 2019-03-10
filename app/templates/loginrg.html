@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EduWonder</title>
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link rel="shortcut icon" type="image/png" href='{{url_for("static",filename="icon1.png")}}'/>
+  <link href='{{url_for("static",filename="loginreg.css")}}' rel='stylesheet'>
+</head>
+<body>
+<div id="first">
+        <img id ="img1" src='{{url_for("static",filename="icon1.png")}}'/>
+        <p id="p1" style="font-family: Serif; color:white">EduWonder</p>
+        
+        <a href="{{url_for('index')}}"><div id="link1"><p class="para">HOME</p></div></a>
+        <a href="{{url_for('dashboard')}}"><div id="link2"><p class="para">DASHBOARD</p></div></a>
+        
+    </div>
+   <div id="big">
+    <div class="split left">
+      <div class="centered">
+        		<form class="formpart" id="font" action="{{url_for('register')}}" method="post">
+                    <h1><div id="topic">REGISTER</div></h1><br/>
+                    <input type="text" name="name" placeholder="Enter your name" required="true" autocomplete="off">
+                    <br/><br/><br/>
+                    <input type="text" name="uname" placeholder="Enter your username" required="true" autocomplete="off">
+                    <br/><br/><br/>
+                    <input type="email" name="email" placeholder="Enter E-mail Id" required="true" autocomplete="off">
+                    <br/><br/><br/>
+                  <input type="password" name="password" placeholder="Enter your password" required>
+                  	<br/><br/><br/>
+                    <input class="btn" id="font" type="submit" value="REGISTER" name="login">
+                    <br/><br/><br/>
+                </form>
+        	</div>
+      </div>
+
+<div class="split right">
+  <div class="centered">
+    		<form class="formpart" id="font" action="{{url_for('login')}}" method="post">
+            <h1><div id="topic">LOGIN</div></h1><br/><br/>
+                <input type="text" name="name" placeholder="Enter username" required="true" autocomplete="off" required>
+                <br/><br/><br/>
+              	<input type="password" name="password" placeholder="Enter your password" required>
+              	<br/><br/><br/>
+                <input class ="btn" id="font" type="submit" value="LOGIN" name="login">
+                <br/><br/><br/>
+                </form>
+    	</div></div>
+</div>
+
+     
+</body>
+</html> 

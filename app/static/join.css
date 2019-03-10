@@ -1,0 +1,145 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+
+#first
+{
+    height:60px;
+    width:auto;
+    background-color: #81cc36;
+    position: relative;
+}
+
+#img1
+{
+    height:60px;
+    width:50px;
+    position: absolute;
+}
+
+#p1
+{
+    font-family: "Luna";
+    color:white;
+    font-size: 50px;
+    position: absolute;
+    padding-left: 70px;
+}
+
+#p2
+{
+    font-family: "Luna";
+    font-size:60px;
+    text-align: center;
+    margin-top: 30px;
+    color:black;
+}
+
+#form1
+{
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+form
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#form1 input[type="text"]
+{
+    border:none;
+    outline:none;
+    border-bottom:2px solid black;
+    background: transparent;
+    height:30px;
+    font-size:20px;
+    text-align: center;
+    color:white;
+    position: absolute;
+    left:70%;
+}
+
+#form1 input[type="submit"]
+{
+    outline:none;
+    border-bottom:2px solid #5f932b;
+    background: transparent;
+    background-color: #81cc36;
+    height:40px;
+    width:170px;
+    font-size:30px;
+    text-align: center;
+    border-radius:5px;
+    color:white;
+    position: absolute;
+    left:73%;
+}
+
+#link1
+{
+    border-radius: 5px;
+    height: 30px;
+    background-color: whitesmoke;
+    text-align: center;
+    width:100px;
+    text-decoration: none;
+    margin-left: 70%;
+    position: absolute; 
+    color: black;
+    top:15px;
+    box-shadow:inset 0 0 10px #a59c9c;
+
+}
+
+#link1:hover
+{
+    box-shadow:inset 0 0 10px #6d6666;
+    transition: 0.2s;
+}
+
+#link2
+{
+    border-radius: 5px;
+    height: 30px;
+    background-color: whitesmoke;
+    text-align: center;
+    width:170px;
+    text-decoration: none; 
+    margin-left: 80%;
+    position: absolute;
+    color: black;
+    top:15px;
+    box-shadow:inset 0 0 10px #a59c9c;
+}
+
+#link2:hover
+{
+    box-shadow:inset 0 0 10px #6d6666;
+    transition: 0.2s;
+}
+
+.para
+{
+    font-size:23px;
+}
+
+#div
+{
+    height:700px;
+    background-color: black;
+}
+
+#pic1
+{
+    position:absolute;
+    height:250px;
+    width:800px;
+}

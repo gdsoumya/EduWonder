@@ -1,0 +1,160 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+#first
+{
+    height: 550px;
+    font-family: "Arvo";
+    width:auto;
+    background-color: black;
+    border-bottom: 2px solid #e0d2d2;
+    position: relative;
+}
+
+#i1
+{
+    height:inherit;   font-family: "Arvo";
+    width:100%;
+    opacity:0.35;
+}
+
+#p1
+{
+    font-family: "Serif";
+    left:450px;
+    top:50px;
+    color:white;
+    font-size: 70px;
+    position: absolute;
+}
+
+#p2
+{
+    color:white;
+    font-family: cursive;
+    font-size:30px;
+    position: absolute;
+    top:50%;
+    left:290px;
+    font-family: "Arvo";
+}
+
+#first-div1
+{
+    height: 50px;
+    width:200px;
+    font-family: 'Arvo', serif;
+    background-color: #9eff3c;
+    border-radius: 3px;
+    left:40%;
+    top:450px;
+    text-align: center;
+    position:absolute;
+    opacity: 0.8;
+    box-shadow:inset 0 0 10px black;
+    transition: 0.3s;
+}
+
+#first-div2
+{
+    height: 50px;
+    width:200px;
+    font-family: "Arvo";
+    background-color: #81cc36;
+    border-radius: 3px;
+    left:53%;
+    top:450px;
+    text-align: center;
+    position:absolute;
+    opacity: 0.8;
+    box-shadow:inset 0 0 10px black;
+    transition: 0.3s;
+}
+
+.t1
+{
+    font-size: 31px;
+    text-decoration: none;
+    color:black;
+    padding-top: 5px;
+}
+
+#first-div1:hover
+{
+    opacity: 1;
+    
+}
+
+#first-div2:hover
+{
+    opacity: 1;
+    
+}
+
+hr
+{
+    border: 5px solid #81cc36;
+    display: block;
+    margin-top: 10px;
+    border-width: 10px;
+}
+
+#p3
+{
+    font-family:serif;
+    font-size:20px;
+    padding-left: 20px;
+    padding-right:20px;
+    padding-top: 20px;
+    text-align: justify;
+    font-family: "Arvo";
+}
+
+#third
+{
+    height: 350px;
+    width:auto;
+    display: flex;
+    font-family: "Arvo";
+    justify-content: space-around;
+}
+
+.column
+{
+    float: left;
+    height: 250px;
+    font-family: "Arvo";
+    width:190px;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.use
+{
+    font-family:"Arvo";
+    font-size:20px;
+}
+
+.ic1
+{
+    height:50px;
+    font-family: "Arvo";
+    width:50px;  
+}
+
+.inside1
+{
+    text-align: center;
+    padding: 5px;
+    font-family: "Arvo";
+    font-size:15px;
+}
+
+.column:hover
+{
+    transform: scale(1.1);
+   
+}

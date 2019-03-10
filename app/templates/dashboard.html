@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>EduWorld</title>
+    <link rel="shortcut icon" type="image/png" href='{{url_for("static",filename="icon1.png")}}'/>
+    <link type="text/css" rel="stylesheet" href='{{url_for("static",filename="dashboard.css")}}'>   
+</head>
+    
+<body>
+    <div id="first">
+        <img id ="img1" src='{{url_for("static",filename="icon1.png")}}'/>
+        <p id="p1">EduWonder</p>
+        <a href="{{url_for('logout')}}"><div id="link2"><p class="para">LOGOUT</p></div></a>
+    </div>
+    
+    <div id="dash">
+        <p id="dtext">DASHBOARD</p>
+    </div>
+    
+<div id="outer">
+    <div id="left">
+        <br/>
+        <br/>
+        <h1 id="name">Name: {{current_user.name}} </h1>
+        <h1 id="name">Username: {{current_user.username}} </h1>
+        <br/>
+        <br/><br/>
+        <a href="{{url_for('create')}}"><button id="create"><p class="b1">Create a Community</p></button></a>
+        <a href="{{url_for('join')}}"><button id="create2"><p class="b1">Join a Community</p></button></a>
+    </div>
+    
+    <div id="right">
+        <h1 id="rtxt">Communities Joined</h1>
+        <ul>
+        {% for x in current_user.admin %}
+            <li><a class="grp" href="/group/{{x.id}}">{{x.name}} </a><span class="admin">[ADMIN]</span></li>
+        {% endfor %}            
+        {% for x in current_user.groups %}
+            <li><a class="grp" href="/group/{{x.id}}">{{x.name}}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+</body>
+</html>

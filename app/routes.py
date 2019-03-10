@@ -1,0 +1,115 @@
+from app import app,db
+from flask import render_template, redirect, url_for, request,flash
+from app.models import User,Post,Group
+from werkzeug.security import generate_password_hash
+from werkzeug.urls import url_parse
+from flask_login import current_user, login_user, logout_user, login_required
+from random import randint
+import time
+
+@app.route('/')
+@app.route('/index/')
+def index():
+	if current_user.is_authenticated:
+		return redirect(url_for('dashboard'))
+	return render_template('landing.html')
+
+@app.route('/getstarted/')
+def start():
+	if current_user.is_authenticated:
+			return redirect(url_for('dashboard'))
+	return render_template('loginrg.html')
+
+@app.route('/login/', methods=['GET', 'POST'])
+def login():
+	if request.method=="GET":
+		if current_user.is_authenticated:
+			return redirect(url_for('dashboard'))
+		return render_template('loginrg.html')
+	else:
+		user = User.query.filter_by(username=request.form['name']).first()
+		if user is None or not user.check_password(request.form['password']):
+			return redirect(url_for('login'))
+		login_user(user)
+		next_page = request.args.get('next')
+        if not next_page or url_parse(next_page).netloc != '':
+            next_page = url_for('dashboard')
+        return redirect(next_page)
+
+@app.route('/register/', methods=['POST','GET'])
+def register():	
+	if request.method=='GET':
+		return render_template('loginrg.html')
+	else :
+		u = User(name=request.form['name'],username=request.form['uname'],email=request.form['email'])
+		u.set_password(request.form['password'])
+		db.session.add(u)
+		db.session.commit()
+		return redirect(url_for('login'))
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
+
+@app.route('/dashboard/')
+@login_required
+def dashboard():
+	return render_template('dashboard.html',current_user=current_user)
+
+@app.route('/create', methods = ['POST','GET'])
+@login_required
+def create():
+	if request.method=='GET':
+		return render_template('create.html')
+	else:
+		g = Group(name=request.form['name'],des=request.form['des'],invite_code=randint(100000,999999),admin=current_user)
+		db.session.add(g)
+		db.session.commit()
+		return "Group Created:\n id = "+str(g.id)+"invite code = "+g.invite_code+" Admin = "+g.admin.username
+
+@app.route('/join', methods = ['POST','GET'])
+@login_required
+def join():
+	if request.method=='GET':
+		return render_template('join.html')
+	else:
+		g = Group.query.filter_by(id=request.form['id']).first()
+		if g is None or not g.invite_code==request.form['invite_code']:
+			return "ERROR Check Grp Id and Invite Code"
+		g.users.append(current_user)
+		db.session.commit()
+		return "Group Joined:\n id = "+str(g.id)+"invite code = "+g.invite_code+" Admin = "+g.admin.username
+
+@app.route('/group/<id>')
+@login_required
+def groupView(id):
+	g = Group.query.filter_by(id=id).first();
+	if g is None:
+		return redirect(url_for('index'))
+	posts = Post.query.filter_by(group_id=g.id)
+	return render_template('groupview.html',g=g,post=posts)
+
+@app.route('/post', methods=['POST'])
+@login_required
+def post():
+	if request.files['file'].filename == '':
+		p = Post(body=request.form['body'])
+	else:
+		f =request.files['file']
+		name = f.filename+str(time.time())+str(current_user.id)
+		f.save(secure_filename(name))
+		p = Post(body=request.form['body'],url=name)
+	g = Group.query.filter_by(id=request.form['id']).first()
+	g.posts.append(p)
+	current_user.posts.append(p)
+	db.session.add(p)
+	db.session.commit()
+	return	redirect(url_for('groupView',id=g.id))
+
+@app.route('/upload', methods = ['POST'])
+def upload_file():
+   if request.method == 'POST':
+      f = request.files['file']
+      f.save(secure_filename(f.filename))
+      return 'file uploaded successfully'
