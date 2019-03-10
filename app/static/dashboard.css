@@ -1,5 +1,5 @@
-*
-{
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+*{
     margin: 0;
     padding: 0;
 }
@@ -22,6 +22,7 @@
     text-decoration: none;
     color: black;
     font-size: 30px;
+    font-family: arial;
 }
 ul{
     margin:50px;
@@ -74,10 +75,11 @@ ul{
 
 #dtext
 {
-    font-family:serif;
     font-size:40px;
     text-align:center;
-    color:white;   
+    color:white;
+    font-family: montserrat;
+    font-weight: bold;
 }
 
 #left
@@ -92,8 +94,10 @@ ul{
 {
     text-align:center;
     padding-top: 30px;
-    font-family:serif;
+    font-family: montserrat;
     color:#7b1515;
+    font-size: 28px;
+    line-height: 29px;
 }
 
 #create
@@ -119,7 +123,7 @@ ul{
 .b1
 {
     font-size: 20px;
-    font-family: serif;
+    font-family: arial;
 }
 
 #create2
@@ -148,6 +152,7 @@ ul{
     text-align: center;
     padding-top:20px;
     font-size:45px;
+    font-family: montserrat;
 }
 
 .admin{
