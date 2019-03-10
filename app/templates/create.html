@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>EduWonder</title>
-        <link rel="shortcut icon" type="image/png" href="icon1.png"/>
+        <link rel="shortcut icon" type="image/png" href="{{url_for("static",filename="icon1.png")}}"/>
         <link type="text/css" rel="stylesheet" href='{{url_for("static",filename="create.css")}}'>  
     </head>
     
@@ -23,7 +23,7 @@
      <div id="form1">
      <form action="" method="post">
         <input type="text" name="name" placeholder="Enter Group Name"><br/><br/><br/><br/>
-         <input type="text" name="des" placeholder="Enter Group Description">
+         <input type="text" name="des" maxlength="200" placeholder="Enter Group Description">
          <br/><br/><br/><br/><br/><br/>
         <input type="submit" name="submit" value="CREATE">
     </form>    

@@ -68,7 +68,7 @@ def create():
 		g = Group(name=request.form['name'],des=request.form['des'],invite_code=randint(100000,999999),admin=current_user)
 		db.session.add(g)
 		db.session.commit()
-		return "Group Created:\n id = "+str(g.id)+"invite code = "+g.invite_code+" Admin = "+g.admin.username
+		return redirect(url_for('groupView',id=g.id))
 
 @app.route('/join', methods = ['POST','GET'])
 @login_required
@@ -81,7 +81,7 @@ def join():
 			return "ERROR Check Grp Id and Invite Code"
 		g.users.append(current_user)
 		db.session.commit()
-		return "Group Joined:\n id = "+str(g.id)+"invite code = "+g.invite_code+" Admin = "+g.admin.username
+		return redirect(url_for('groupView',id=g.id))
 
 @app.route('/group/<id>')
 @login_required
