@@ -6,6 +6,8 @@ from werkzeug.urls import url_parse
 from flask_login import current_user, login_user, logout_user, login_required
 from random import randint
 import time
+from werkzeug import secure_filename
+import os
 
 @app.route('/')
 @app.route('/index/')
@@ -97,8 +99,8 @@ def post():
 		p = Post(body=request.form['body'])
 	else:
 		f =request.files['file']
-		name = f.filename+str(time.time())+str(current_user.id)
-		f.save(secure_filename(name))
+		name = str(time.time())+str(current_user.id)+f.filename
+		f.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(name)))
 		p = Post(body=request.form['body'],url=name)
 	g = Group.query.filter_by(id=request.form['id']).first()
 	g.posts.append(p)
@@ -107,9 +109,7 @@ def post():
 	db.session.commit()
 	return	redirect(url_for('groupView',id=g.id))
 
-@app.route('/upload', methods = ['POST'])
-def upload_file():
-   if request.method == 'POST':
-      f = request.files['file']
-      f.save(secure_filename(f.filename))
-      return 'file uploaded successfully'
+@app.route('/uploads/<path:path>')
+def send_js(path):
+    return send_from_directory('uploads', path)
+

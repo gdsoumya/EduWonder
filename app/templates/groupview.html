@@ -20,7 +20,7 @@
 		<button class="open-button" onclick="openForm()">Add Resource</button>
 
 <div class="form-popup" id="myForm">
-  <form action="{{url_for('post')}}" method="post" class="form-container">
+  <form action="{{url_for('post')}}" method="post" class="form-container" enctype="multipart/form-data">
     <h2>Resource Description</h2>
 
     <textarea rows="10" cols="30" maxlength="500" name="body" required="true"></textarea>
