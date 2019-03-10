@@ -96,17 +96,21 @@ def groupView(id):
 @login_required
 def post():
 	exts = ['jpg','jpeg','png','gif']
-	if request.files['file'].filename == '':
+	try:
+		if request.files['file'].filename == '':
+			p = Post(body=request.form['body'])
+		else:
+			s=0
+			f =request.files['file']
+			name = str(time.time())+str(current_user.id)+f.filename
+			f.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(name)))
+			ext = name.split('.')[-1]
+			if ext in exts:
+				s=1
+			p = Post(body=request.form['body'],url=name,struct=s)
+	except Exception as e:
+		print(e)
 		p = Post(body=request.form['body'])
-	else:
-		s=0
-		f =request.files['file'][0]
-		name = str(time.time())+str(current_user.id)+f.filename
-		f.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(name)))
-		ext = name.split('.')[-1]
-		if ext in exts:
-			s=1
-		p = Post(body=request.form['body'],url=name,struct=s)
 	g = Group.query.filter_by(id=request.form['id']).first()
 	g.posts.append(p)
 	current_user.posts.append(p)
