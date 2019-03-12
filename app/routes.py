@@ -129,7 +129,4 @@ def post():
 	db.session.commit()
 	return	redirect(url_for('groupView',id=g.id))
 
-@app.route('/uploads/<path:path>')
-def send_js(path):
-    return send_from_directory('uploads', path)
 
