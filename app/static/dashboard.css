@@ -3,18 +3,30 @@
     margin: 0;
     padding: 0;
 }
+.reg{
+    font-family: montserrat;
+    text-align: center;
+    background: red;
+    padding: 11px;
+    font-size: 21px;
+    font-weight: bold;
+    width: fit-content;
+    margin: 30px auto 0px auto;
+    border-radius: 30px;
+    color:  white
+}
 #first
 {
     height:60px;
     width:auto;
     background-color: #81cc36;
     position: relative;
-    font-family: "montserrat";
+    font-family: montserrat;
 }
 #img1
 {
     height:60px;
-    font-family: "montserrat";
+    font-family: montserrat;
     width:50px;
     position: absolute;
 }
@@ -60,7 +72,7 @@ ul{
 
 .para
 {
-    font-family: "montserrat";
+    font-family: montserrat;
     font-size:23px;
 }
 

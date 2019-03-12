@@ -17,6 +17,8 @@
   <div class="contain">
     {% if reg==1 %}
       <div class="reg">REGISTERED SUCCESFULLY</div>
+    {% elif reg==-1 %}
+      <div class="reg">USER WITH SAME EMAIL/USERNAME ALREADY EXISTS</div>
     {% endif %}
     <div id="big">
     <div class="split left">

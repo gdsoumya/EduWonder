@@ -130,22 +130,14 @@ input{
     font-size:23px;
 }
 .reg{
-
-text-align: center;
-
-background: red;
-
-padding: 11px;
-
-font-size: 21px;
-
-font-weight: bold;
-
-width: fit-content;
-
-margin: 30px auto 0px auto;
-
-border-radius: 30px;
+    text-align: center;
+    background: red;
+    padding: 11px;
+    font-size: 21px;
+    font-weight: bold;
+    width: fit-content;
+    margin: 30px auto 0px auto;
+    border-radius: 30px;
 }
 #link1 a{
   text-decoration: none;

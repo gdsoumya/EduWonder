@@ -8,6 +8,7 @@ from random import randint
 import time
 from werkzeug import secure_filename
 import os
+from sqlalchemy import or_
 
 @app.route('/')
 @app.route('/index/')
@@ -43,11 +44,15 @@ def register():
 	if request.method=='GET':
 		return render_template('loginrg.html')
 	else :
-		u = User(name=request.form['name'],username=request.form['uname'],email=request.form['email'])
-		u.set_password(request.form['password'])
-		db.session.add(u)
-		db.session.commit()
-		return render_template('loginrg.html',reg=1)
+		u = User.query.filter(or_(User.username==request.form['uname'],User.email==request.form['email'])).first()
+		if u is None:
+			u = User(name=request.form['name'],username=request.form['uname'],email=request.form['email'])
+			u.set_password(request.form['password'])
+			db.session.add(u)
+			db.session.commit()
+			return render_template('loginrg.html',reg=1)
+		else:
+			return render_template('loginrg.html',reg=-1)
 
 @app.route('/logout')
 def logout():
@@ -90,7 +95,13 @@ def groupView(id):
 	if g is None:
 		return redirect(url_for('index'))
 	posts = Post.query.filter_by(group_id=g.id)
-	return render_template('groupview.html',g=g,post=posts)
+	if g.admin_id==current_user.id:
+		return render_template('groupview.html',g=g,post=posts)
+	q = current_user.groups
+	for i in q:
+		if i.id==g.id:
+			return render_template('groupview.html',g=g,post=posts)
+	return render_template('dashboard.html',f=1)
 
 @app.route('/post', methods=['POST'])
 @login_required

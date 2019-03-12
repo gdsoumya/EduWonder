@@ -46,7 +46,7 @@
       {% if x.struct ==1 %}
         <img class="image" src="{{url_for('static', filename='uploads/'+x.url)}}">
       {% else %}
-        <a class="others" href="{{url_for('static', filename='uploads/'+x.url)}}">View File</a>
+        <a class="others" href="{{url_for('static', filename='uploads/'+x.url)}}" download>Download File</a>
       {% endif %}
     {% endif %}
 	<br>
