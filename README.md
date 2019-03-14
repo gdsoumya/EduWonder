@@ -17,6 +17,7 @@ $ git clone https://github.com/gdsoumya/EduWonder.git
 or 
 Download and extract the Zip-File
 ```
+
 ### Setting up Virtual Environemt
 Setting up a virtual environment would be better for both development and normal execution purposes.
 ```sh
